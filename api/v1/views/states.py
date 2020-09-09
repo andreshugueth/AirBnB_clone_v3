@@ -1,4 +1,4 @@
-#!usr/bin/python3
+#!/usr/bin/python3
 """State objects that handles all default RestFul API actions"""
 from api.v1.views import app_views
 from models import storage
@@ -54,7 +54,7 @@ def create_state():
 @app_views.route('/states/<string:state_id>', methods=['PUT'],
                  strict_slashes=False)
 def put_state(state_id):
-    """update a state"""
+    """update a states"""
     state = storage.get("State", state_id)
     if state is None:
         abort(404)
@@ -63,5 +63,5 @@ def put_state(state_id):
     for attr, val in request.get_json().items():
         if attr not in ['id', 'created_at', 'updated_at']:
             setattr(state, attr, val)
-    state.save()
+    storage.save()
     return jsonify(state.to_dict())
