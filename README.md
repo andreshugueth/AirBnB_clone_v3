@@ -3,7 +3,8 @@
 <p align="center">
    <img src="https://i.imgur.com/aI5YvtL.png">
 </p>
-[![Twitter Andres](https://img.shields.io/twitter/follow/Adonis7ejeda?label=AdonisTejeda&style=social)](https://twitter.com/AndresHugueth)
+
+[![Twitter Andres](https://img.shields.io/twitter/follow/AndresHugueth?label=AndresHugueth&style=social)](https://twitter.com/AndresHugueth)
 [![Twitter Carlos](https://img.shields.io/twitter/follow/cbarros27?label=CarlosBarros&style=social)](https://twitter.com/cbarros27)
 
 
