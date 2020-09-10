@@ -31,24 +31,25 @@ def delete_state(state_id):
     """Deletes a State object"""
     state = storage.get(State, state_id)
     if state is None:
-        return abort(404)
+        abort(404)
     state.delete
     storage.save
-    return jsonify({})
+    return make_response(jsonify({}), 200)
 
 
 @app_views.route('/states', methods=['POST'], strict_slashes=False)
-def create_state():
-    """Creates a State"""
-    response = request.get_json
-    if response is None:
-        return make_response("Not a JSON", 400)
-    if 'name' not in response:
-        return make_response("Missing name", 400)
-    state = State(**response)
-    storage.new(state)
-    storage.save()
-    return make_response(jsonify(state.to_dict()), 201)
+def post_state_create():
+    """comet"""
+    conten = request.get_json()
+    if conten is None:
+        return "Not a JSON", 400
+    if conten.get('name') is None:
+        return "Missing name", 400
+    else:
+        new_obj = State(**conten)
+        storage.new(new_obj)
+        storage.save()
+    return make_response((new_obj.to_dict()), 201)
 
 
 @app_views.route('/states/<string:state_id>', methods=['PUT'],
