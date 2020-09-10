@@ -101,7 +101,11 @@ class test_bnb_v3(unittest.TestCase):
 
     def testing_count(self):
         """testing count with no parameters"""
-        self.assertTrue("{}".format(storage.count(), 0))
+        self.assertTrue("{}".format(storage.count(), 48))
+
+    def testing_count_with_params(self):
+        """testing count with parameters"""
+        self.assertTrue("{}".format(storage.count("State")), 16)
 
     def testing_get(self):
         """testing get with no cls param"""

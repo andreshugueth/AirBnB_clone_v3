@@ -103,6 +103,11 @@ class TestFileStorage(unittest.TestCase):
 
 class test_bnb_v3(unittest.TestCase):
     """Test new method get"""
+    def testing_get_no_id(self):
+        """testing get with no id param"""
+        first_state_id = None
+        self.assertTrue("{}".format(storage.get("State", first_state_id),
+                                    None))
 
     def testing_count(self):
         """testing count with no parameters"""
