@@ -49,7 +49,7 @@ def post_state_create():
         new_obj = State(**conten)
         storage.new(new_obj)
         storage.save()
-    return make_response((new_obj.to_dict()), 201)
+    return make_response(jsonify(new_obj.to_dict()), 201)
 
 
 @app_views.route('/states/<string:state_id>', methods=['PUT'],
@@ -65,4 +65,4 @@ def put_state(state_id):
         if attr not in ['id', 'created_at', 'updated_at']:
             setattr(state, attr, val)
     storage.save()
-    return jsonify(state.to_dict())
+    return make_response(jsonify(state.to_dict()), 200)
