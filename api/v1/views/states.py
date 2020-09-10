@@ -12,7 +12,7 @@ def list_state():
     state_list = []
     for state in storage.all("State").values():
         state_list.append(state.to_dict())
-    return jsonify(state_list)
+    return make_response(jsonify(state_list), 200)
 
 
 @app_views.route('/states/<string:state_id>', methods=['GET'],
@@ -21,8 +21,8 @@ def state_obj(state_id):
     """Retrieves a State object"""
     state = storage.get(State, state_id)
     if state is None:
-        return abort(404)
-    return jsonify(state.to_dict())
+        abort(404)
+    return make_response(jsonify(state.to_dict()), 200)
 
 
 @app_views.route('/states/<string:state_id>', methods=['DELETE'],
