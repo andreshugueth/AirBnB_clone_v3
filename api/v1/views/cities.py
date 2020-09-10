@@ -2,7 +2,8 @@
 """New Funtion states"""
 from api.v1.views import app_views
 from models.city import City
-import models.state Import State
+from models.state import State
+from models.city import City
 from models import storage
 from flask import jsonify, abort, request, make_response
 
